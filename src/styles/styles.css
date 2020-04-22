@@ -1,0 +1,11 @@
+li {
+  padding: 5px;
+}
+.rightUser {
+  text-align: right;
+  list-style-type: none;
+}
+.leftUser {
+  text-align: left;
+  list-style-type: none;
+}
