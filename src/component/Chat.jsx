@@ -44,9 +44,9 @@ class Chat extends Component {
   };
 
   render() {
+    console.log(this.state);
     const { messages } = this.state;
     const { room, user } = this.props;
-
     return (
       <div className='chatBox'>
         <h1>You are now chatting in {room}</h1>
@@ -70,10 +70,24 @@ class Chat extends Component {
             );
           })}
         </ul>
-        <WriteMessage messages={messages} />
+        <WriteMessage
+          messages={messages}
+          addCommentToState={this.addCommentToState}
+          user={user}
+        />
       </div>
     );
   }
+  addCommentToState = (data) => {
+    this.setState((currentState) => {
+      const { message } = data;
+      return { messages: [...currentState.messages, message] };
+    });
+  };
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.messages !== this.state.messages) {
+  //   }
+  // }
 }
 
 export default Chat;
