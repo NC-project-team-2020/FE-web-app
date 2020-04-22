@@ -12,7 +12,7 @@ class App extends Component {
     room: '',
     user: {
       user_id: 1,
-      user_name: 'Michael Smith',
+      name: 'Michael Smith',
       user_img: 'random url',
     },
   };

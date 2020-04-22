@@ -4,6 +4,7 @@ class WriteMessage extends Component {
   state = {
     comment: '',
   };
+
   render() {
     return (
       <div>
@@ -25,6 +26,20 @@ class WriteMessage extends Component {
     event.preventDefault();
     const { value } = event.target;
     this.setState({ comment: value });
+  };
+  commentSubmit = (event) => {
+    const { addCommentToState, user } = this.props;
+    const { comment } = this.state;
+    event.preventDefault();
+    addCommentToState({
+      message: {
+        user_id: user.user_id,
+        name: user.name,
+        message_text: comment,
+        created_at: new Date(),
+      },
+    });
+    event.target.reset();
   };
 }
 
