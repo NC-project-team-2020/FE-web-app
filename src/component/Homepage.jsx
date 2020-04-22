@@ -1,40 +1,28 @@
 import React, { Component } from 'react';
 
 class Homepage extends Component {
+  state = {
+    rooms: ['Music', 'Sport', 'Baking', 'Coding', 'Politics', 'Art'],
+  };
   render() {
     const { changeRoom } = this.props;
+    const { rooms } = this.state;
     return (
       <>
         <h1>Select your room</h1>
         <ul>
-          <li
-            onClick={() => {
-              changeRoom('Room1');
-            }}
-          >
-            Room 1
-          </li>
-          <li
-            onClick={() => {
-              changeRoom('Room2');
-            }}
-          >
-            Room 2
-          </li>
-          <li
-            onClick={() => {
-              changeRoom('Room3');
-            }}
-          >
-            Room 3
-          </li>
-          <li
-            onClick={() => {
-              changeRoom('Room4');
-            }}
-          >
-            Room 4
-          </li>
+          {rooms.map((room, i) => {
+            return (
+              <li
+                key={i}
+                onClick={() => {
+                  changeRoom(room);
+                }}
+              >
+                {room}
+              </li>
+            );
+          })}
         </ul>
       </>
     );

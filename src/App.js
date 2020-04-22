@@ -3,23 +3,30 @@ import './App.css';
 import Header from './component/Header';
 import WhosOnline from './component/WhosOnline';
 import Chat from './component/Chat';
+import UserProfile from './component/UserProfile';
 import Footer from './component/Footer';
 import Homepage from './component/Homepage';
 
 class App extends Component {
   state = {
     room: '',
+    user: {
+      user_id: 1,
+      user_name: 'Michael Smith',
+      user_img: 'random url',
+    },
   };
   render() {
-    const { room } = this.state;
+    const { room, user } = this.state;
     if (room === '') {
       return <Homepage room={room} changeRoom={this.changeRoom} />;
     }
     return (
-      <div className="App">
+      <div className='App'>
         <Header />
+        <UserProfile user={user} />
         <WhosOnline />
-        <Chat />
+        <Chat room={room} user={user} />
         <Footer />
       </div>
     );

@@ -1,7 +1,7 @@
 .App {
   display: grid;
   grid-template-columns: 2fr 7.5fr 1fr;
-  grid-template-rows: 100px 8fr 100px 50px;
+  grid-template-rows: 100px 8fr 500px 50px;
   gap: 1px 1px;
   grid-template-areas: 'Header Header Header' 'onlineList messageBox right' 'onlineList chatBox right' 'footer footer footer';
   background-color: bisque;
@@ -17,6 +17,12 @@
 
 .chatBox {
   grid-area: chatBox;
+  border: 1px solid black;
+}
+
+.overflowYScroll {
+  overflow-y: scroll;
+  height: 318px;
 }
 
 .footer {
